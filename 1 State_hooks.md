@@ -12,8 +12,18 @@
 
     <hr><br>
 
+### Hooks aapko React components me mukhtalif features use karne dete hain. 
 
-# State Hooks
+### Aap ya to built-in Hooks ka use kar sakte hain ya inko mila ke apne custom Hooks bana sakte hain. 
+
+# Types 
+
+- ## State Hooks
+    
+    - ### State Hooks component ko kisi information ko read aur update karny lye me madad karte hain
+    
+    - ### jaise user ka input. e.g, form component input value ko store karne ke liye state ka use kar sakta hai, aur ek image gallery selected image ko track karne ke liye, etc.
+
 
 <br>
 
