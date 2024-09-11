@@ -1,6 +1,21 @@
+# Hooks ek React-dom ka package hn, 
+
+- ### ye sirf web applications ke liye banaye gaye hain jo browser ke DOM (Document Object Model) environment me run karte hain. 
+    
+    <hr>
+
+- ### Ye hooks mobile applications, jaise iOS, Android, ya Windows applications me supported nahi hote kyunki wo browser environment ke bahar hain. 
+    
+    <hr>
+    
+- ### Browser ke ilawa dusre environments ke liye aapko alag libraries use karni padti hain, jaise React Native jo mobile apps ke liye hota hai.
+
+    <hr><br>
+
+
 # State Hooks
 
-<br><br>
+<br>
 
 # 2 Types ky State Hooks hn
 
