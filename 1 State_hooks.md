@@ -172,8 +172,8 @@ export default function USE_ST() {
                 type: 'changeStep',
                 payload: parseInt(e.target.value)
               })
-              }
-
+              } 
+              value={value.step}
       />
     </div>
   );
@@ -181,32 +181,10 @@ export default function USE_ST() {
 
 ```
 
-# html Code
+# Preview 
 
-<div>
-  <p> -> Count: {value.count}</p>
-  <p> -> Step: {value.step}</p>
+<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/2_use_reducer.gif target="_blank"/>Click Here Preview
 
-<button 
-    onclick="setCount({ count: value.count + value.step, step: value.step })">
-Increment
-</button>
-
-<button 
-    onclick="setCount({ count: value.count - value.step, step: value.step })">
-Decrement
-</button>
-
-  <br />
-
-<label for="step">Step</label>
-<input 
-    type="text" 
-    id="step" 
-    onchange="setCount({ count: value.count, step: parseInt(e.target.value) || 1 })"
-  />
-
-</div>
 
 Yeh code ek counter component hai jo **useReducer** ka use karta hai state aur actions manage karne ke liye:
 
