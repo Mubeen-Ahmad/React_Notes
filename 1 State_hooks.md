@@ -94,7 +94,7 @@ export default function US_ST(){
 
 # Preview 
 
-<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1_usestate.gif />Click Here Preview
+<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1_usestate.gif target="_blank"/>Click Here Preview
 
 
 Yeh code ek simple counter component banata hai jo:
