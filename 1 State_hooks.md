@@ -71,7 +71,7 @@ export default function US_ST(){
 
 # html Code
 
-<div>
+<div syle="background-color:red;">
   <p> -> Count: {value.count}</p>
   <p> -> Step: {value.step}</p>
 
