@@ -94,32 +94,10 @@ export default function US_ST(){
 
 ```
 
-# html Code
+# Preview 
 
-<div syle="background-color:red;">
-  <p> -> Count: {value.count}</p>
-  <p> -> Step: {value.step}</p>
+<img src="https://github.com/Mubeen-Ahmad/React_Notes/tree/main/images/1_usestate.gif" />
 
-<button 
-    onclick="setCount({ count: value.count + value.step, step: value.step })">
-Increment
-</button>
-
-<button 
-    onclick="setCount({ count: value.count - value.step, step: value.step })">
-Decrement
-</button>
-
-  <br />
-
-<label for="step">Step</label>
-<input 
-    type="text" 
-    id="step" 
-    onchange="setCount({ count: value.count, step: parseInt(e.target.value) || 1 })"
-  />
-
-</div>
 
 Yeh code ek simple counter component banata hai jo:
 
