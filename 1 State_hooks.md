@@ -68,15 +68,13 @@ export default function US_ST(){
 
         <button onClick={() =>
             setCount({ count: value.count + value.step, step: value.step })}>
-            Increment
-            </button>
+            Increment</button>
 
 
 
         <button onClick={() =>
           setCount({ count: value.count - value.step, step: value.step })}>
-          Decrement<
-          /button>
+          Decrement</button>
 
         <br />
 
@@ -96,7 +94,7 @@ export default function US_ST(){
 
 # Preview 
 
-<img src="https://github.com/Mubeen-Ahmad/React_Notes/tree/main/images/1_usestate.gif" />
+<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1_usestate.gif />Click Here Preview
 
 
 Yeh code ek simple counter component banata hai jo:
