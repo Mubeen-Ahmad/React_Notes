@@ -12,89 +12,13 @@
 
 ## Example
 
-```
-import React, { useState } from 'react';
-
-export default function USE_ST() {
-
-
-  function load_db(){
-    alert("Calling")
-
-    // just assume this is old database record
-
-    let db = [
-      {id:1,item:"red"},
-      {id:2,item:"green"},
-      {id:3,item:"purple"},
-      {id:4,item:"orange"},
-    ]
-
-    return db;
-
-  }
-
-  const [data,updateData] = useState(load_db);
-
-  const [text,updateText] = useState('');
-
-  return (
-
-    <div>
-
-      <input type="text" value={text}
-            onChange={(e)=> updateText(e.target.value)}
-            />
-
-      <button type='button'
-      onClick={() => {
-
-        updateData(data.concat([{id:data.length,item:text}]))
-        updateText('');
-  }}>ADD</button>
-
-      <ul>
-        {
-        data.map(i =>
-
-          <li id={i.id}> {i.item}  </li>
-           )
-        }
-
-      </ul>
-
-    </div>
-  );
-}
-
-```
-
-Explanation theek hai, lekin kuch jagah pe clarification aur phrasing ko behtar banaya ja sakta hai taake concepts zyada clear hoon. Main points sahi hain, lekin main ne thoda aur refine kiya hai. Naye version mein key points aur concepts ko thoda aur simple aur clear banane ki koshish ki hai:
-
----
-
-## **useState Examples**
-
-### **Initializer State vs Call State**
-
-### **Initialize State:**
-
-- Jab aap `useState` hook ko use karte ho aur usay koi **function reference** pass karte ho (parentheses ke baghair), to React us function ko **sirf ek dafa** tab run karta hai jab component pehli dafa render hota hai.
-- Isko **initialize state** kehte hain, aur iska maksad yeh hota hai ke jab component shuru ho to koi default value set ho jaye. Yeh performance ke liye bohot acha hota hai, kyun ke yeh unnecessary calculations ko roknay mein madad karta hai.
-
----
-
-### **Example:**
-
 ```javascript
 import React, { useState } from "react";
 
 export default function USE_ST() {
-  // Yeh function sirf ek dafa run hoga jab component pehli dafa load hoga
   function load_db() {
-    alert("Calling");
+    // just assume this is old database record
 
-    // Just assume this is an old database record
     let db = [
       { id: 1, item: "red" },
       { id: 2, item: "green" },
@@ -105,10 +29,8 @@ export default function USE_ST() {
     return db;
   }
 
-  // load_db function ko initialize state ke liye diya gaya, call nahi kiya
   const [data, updateData] = useState(load_db);
 
-  // Yeh new data ke liye text state hai
   const [text, updateText] = useState("");
 
   return (
@@ -122,9 +44,8 @@ export default function USE_ST() {
       <button
         type="button"
         onClick={() => {
-          // Purane data ke sath new item ko concat karo
-          updateData(data.concat([{ id: data.length + 1, item: text }]));
-          updateText(""); // Text input clear kar do
+          updateData(data.concat([{ id: data.length, item: text }]));
+          updateText("");
         }}
       >
         ADD
@@ -132,13 +53,28 @@ export default function USE_ST() {
 
       <ul>
         {data.map((i) => (
-          <li key={i.id}>{i.item}</li>
+          <li id={i.id}> {i.item} </li>
         ))}
       </ul>
     </div>
   );
 }
 ```
+
+# Preview
+
+<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/3_intiliaze_vs_call.gif target="_blank">Click Here Preview</a>
+
+---
+
+## **useState Examples**
+
+### **Initializer State vs Call State**
+
+### **Initialize State:**
+
+- Jab aap `useState` hook ko use karte ho aur usay koi **function reference** pass karte ho (parentheses ke baghair), to React us function ko **sirf ek dafa** tab run karta hai jab component pehli dafa render hota hai.
+- Isko **initialize state** kehte hain, aur iska maksad yeh hota hai ke jab component shuru ho to koi default value set ho jaye. Yeh performance ke liye bohot acha hota hai, kyun ke yeh unnecessary calculations ko roknay mein madad karta hai.
 
 ---
 
@@ -162,4 +98,3 @@ export default function USE_ST() {
 
 - ## Is example mein `load_db` function **sirf ek dafa** run hoga jab component pehli dafa load hoga, chahe state kitni baar bhi update ho, yeh function dobara run nahi hoga.
 - ## Agar hum `load_db()` ko parentheses ke sath call karte, jaise `useState(load_db());`, to yeh **har render** pe run hota, jo ke har character type karne par function ko dubara run kar deta. Is se **performance slow** hoti kyun ke unnecessary calls ho rahi hoti.
- 

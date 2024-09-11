@@ -48,47 +48,50 @@ const [value, setValue] = useState(initialValue);
 
 # Example
 
-```
+```javascript
 // ./components/1_state_Hook.js
 
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function US_ST(){
+export default function US_ST() {
+  const initialState = { count: 0, step: 1 };
+  const [value, setCount] = useState(initialState);
 
-      const initialState = { count: 0, step: 1 };
-      const [value, setCount] = useState(initialState);
+  return (
+    <div>
+      <p> -> Count: {value.count}</p>
+      <p> -> Step: {value.step}</p>
 
-    return (
+      <button
+        onClick={() =>
+          setCount({ count: value.count + value.step, step: value.step })
+        }
+      >
+        Increment
+      </button>
 
-      <div>
-        <p> -> Count: {value.count}</p>
-        <p> -> Step: {value.step}</p>
+      <button
+        onClick={() =>
+          setCount({ count: value.count - value.step, step: value.step })
+        }
+      >
+        Decrement
+      </button>
 
+      <br />
 
-        <button onClick={() =>
-            setCount({ count: value.count + value.step, step: value.step })}>
-            Increment</button>
+      <label htmlFor="step">Step</label>
 
-
-
-        <button onClick={() =>
-          setCount({ count: value.count - value.step, step: value.step })}>
-          Decrement</button>
-
-        <br />
-
-        <label htmlFor="step">Step</label>
-
-        <input
-          type="text"
-          id="step"
-          onChange={(e) =>
-          setCount({ count: value.count, step: parseInt(e.target.value) || 1 })}
-        />
-      </div>
-    );
-  }
-
+      <input
+        type="text"
+        id="step"
+        onChange={(e) =>
+          setCount({ count: value.count, step: parseInt(e.target.value) || 1 })
+        }
+      />
+    </div>
+  );
+}
 ```
 
 # Preview
@@ -111,53 +114,39 @@ Yeh code ek simple counter component banata hai jo:
 
 # Syntax
 
-```
+```javascript
 const [value, action] = useReducer(reducer, initialState);
 ```
 
 # Example
 
-```
-import React, { useReducer } from 'react';
-
+```javascript
+import React, { useReducer } from "react";
 
 function reducer(value, action) {
-
-  if(action.type === "increment") {
-    return {count:value.count + value.step, step:value.step}
-    }
-
-  else if(action.type === "decrement") {
-    return {count:value.count - value.step, step:value.step}
-    }
-
-  else if(action.type === "changeStep") {
-    return {count:value.count, step:action.payload}
-    }
-
-  else { return value }
-
+  if (action.type === "increment") {
+    return { count: value.count + value.step, step: value.step };
+  } else if (action.type === "decrement") {
+    return { count: value.count - value.step, step: value.step };
+  } else if (action.type === "changeStep") {
+    return { count: value.count, step: action.payload };
+  } else {
+    return value;
+  }
 }
 
 export default function USE_ST() {
-
-
   const initialState = { count: 0, step: 1 };
   const [value, action] = useReducer(reducer, initialState);
 
   return (
-
     <div>
       <p> -> Count: {value.count}</p>
       <p> -> Step: {value.step}</p>
 
-      <button onClick={() =>
-        action({ type: 'increment' })}>
-        Increment</button>
+      <button onClick={() => action({ type: "increment" })}>Increment</button>
 
-      <button onClick={() =>
-        action({ type: 'decrement' })}>
-        Decrement</button>
+      <button onClick={() => action({ type: "decrement" })}>Decrement</button>
 
       <br />
 
@@ -165,18 +154,16 @@ export default function USE_ST() {
 
       <input
         onChange={(e) =>
-            action(
-              {
-                type: 'changeStep',
-                payload: parseInt(e.target.value)
-              })
-              }
-              value={value.step}
+          action({
+            type: "changeStep",
+            payload: parseInt(e.target.value),
+          })
+        }
+        value={value.step}
       />
     </div>
   );
 }
-
 ```
 
 # Preview
