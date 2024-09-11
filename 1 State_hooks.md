@@ -1,0 +1,227 @@
+# State Hooks
+
+<br><br>
+
+# 2 Types ky State Hooks hn
+
+- ## 1 useState
+
+- ## 2 useReducer
+
+# useState
+
+- ### Simple state ke liye best.
+
+- ## Syntax
+
+```
+const [value, setValue] = useState(initialValue);
+```
+
+- ### value me data ki value assign ki jati hn
+
+- ### setValue function hota hn to value ko update karta hn
+
+# Example
+
+```
+// ./components/1_state_Hook.js
+
+import { useState } from 'react';
+
+export default function US_ST(){
+
+      const initialState = { count: 0, step: 1 };
+      const [value, setCount] = useState(initialState);
+
+    return (
+
+      <div>
+        <p> -> Count: {value.count}</p>
+        <p> -> Step: {value.step}</p>
+
+
+        <button onClick={() =>
+            setCount({ count: value.count + value.step, step: value.step })}>
+            Increment
+            </button>
+
+
+
+        <button onClick={() =>
+          setCount({ count: value.count - value.step, step: value.step })}>
+          Decrement<
+          /button>
+
+        <br />
+
+        <label htmlFor="step">Step</label>
+
+        <input
+          type="text"
+          id="step"
+          onChange={(e) =>
+          setCount({ count: value.count, step: parseInt(e.target.value) || 1 })}
+        />
+      </div>
+    );
+  }
+
+```
+
+# html Code
+
+<div>
+  <p> -> Count: {value.count}</p>
+  <p> -> Step: {value.step}</p>
+
+<button 
+    onclick="setCount({ count: value.count + value.step, step: value.step })">
+Increment
+</button>
+
+<button 
+    onclick="setCount({ count: value.count - value.step, step: value.step })">
+Decrement
+</button>
+
+  <br />
+
+<label for="step">Step</label>
+<input 
+    type="text" 
+    id="step" 
+    onchange="setCount({ count: value.count, step: parseInt(e.target.value) || 1 })"
+  />
+
+</div>
+
+Yeh code ek simple counter component banata hai jo:
+
+- **useState** se `count` aur `step` ko handle karta hai.
+
+- **Increment/Decrement** buttons se count ko step ke mutabiq increase/decrease karta hai.
+
+- **Step Input** se user manually step ki value set kar sakta hai.
+
+<hr>
+
+# useReducer
+
+- ## Complex aur Multiple Logics ky liye best hy
+
+# Syntax
+
+```
+const [value, action] = useReducer(reducer, initialState);
+```
+
+# Example
+
+```
+import React, { useReducer } from 'react';
+
+
+function reducer(value, action) {
+
+  if(action.type === "increment") {
+    return {count:value.count + value.step, step:value.step}
+    }
+
+  else if(action.type === "decrement") {
+    return {count:value.count - value.step, step:value.step}
+    }
+
+  else if(action.type === "changeStep") {
+    return {count:value.count, step:action.payload}
+    }
+
+  else { return value }
+
+}
+
+export default function USE_ST() {
+
+
+  const initialState = { count: 0, step: 1 };
+  const [value, action] = useReducer(reducer, initialState);
+
+  return (
+
+    <div>
+      <p> -> Count: {value.count}</p>
+      <p> -> Step: {value.step}</p>
+
+      <button onClick={() =>
+        action({ type: 'increment' })}>
+        Increment</button>
+
+      <button onClick={() =>
+        action({ type: 'decrement' })}>
+        Decrement</button>
+
+      <br />
+
+      <label htmlFor="step">Step</label>
+
+      <input
+        onChange={(e) =>
+            action(
+              {
+                type: 'changeStep',
+                payload: parseInt(e.target.value)
+              })
+              }
+
+      />
+    </div>
+  );
+}
+
+```
+
+# html Code
+
+<div>
+  <p> -> Count: {value.count}</p>
+  <p> -> Step: {value.step}</p>
+
+<button 
+    onclick="setCount({ count: value.count + value.step, step: value.step })">
+Increment
+</button>
+
+<button 
+    onclick="setCount({ count: value.count - value.step, step: value.step })">
+Decrement
+</button>
+
+  <br />
+
+<label for="step">Step</label>
+<input 
+    type="text" 
+    id="step" 
+    onchange="setCount({ count: value.count, step: parseInt(e.target.value) || 1 })"
+  />
+
+</div>
+
+Yeh code ek counter component hai jo **useReducer** ka use karta hai state aur actions manage karne ke liye:
+
+- `reducer` function state update karne ka logic handle karta hai.
+
+  - `increment` aur `decrement` actions count ko increase ya decrease karte hain.
+
+  - `changeStep` action step value ko update karta hai.
+
+- **Buttons** `increment` aur `decrement` ke liye actions dispatch karte hain.
+
+- **Input field** user se step value le kar usko update karne ke liye `changeStep` action dispatch karta hai.
+
+<hr>
+
+# Use Case
+
+- ## **useState**: Simple state management ke liye, jab state transitions straightforward hoon (jaise single values update karna).
+- ## **useReducer**: Jab complex state logic ho, multiple state values update karni hoon, ya actions based updates hoon (jaise form handling ya counters with multiple actions).
