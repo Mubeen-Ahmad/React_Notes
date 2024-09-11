@@ -1,29 +1,28 @@
-# Hooks ek React-dom ka package hn, 
+# Hooks ek React-dom ka package hn,
 
-- ### ye sirf web applications ke liye banaye gaye hain jo browser ke DOM (Document Object Model) environment me run karte hain. 
-    
+- ### ye sirf web applications ke liye banaye gaye hain jo browser ke DOM (Document Object Model) environment me run karte hain.
+
     <hr>
 
-- ### Ye hooks mobile applications, jaise iOS, Android, ya Windows applications me supported nahi hote kyunki wo browser environment ke bahar hain. 
-    
+- ### Ye hooks mobile applications, jaise iOS, Android, ya Windows applications me supported nahi hote kyunki wo browser environment ke bahar hain.
+
     <hr>
-    
+
 - ### Browser ke ilawa dusre environments ke liye aapko alag libraries use karni padti hain, jaise React Native jo mobile apps ke liye hota hai.
 
     <hr><br>
 
-### Hooks aapko React components me mukhtalif features use karne dete hain. 
+### Hooks aapko React components me mukhtalif features use karne dete hain.
 
-### Aap ya to built-in Hooks ka use kar sakte hain ya inko mila ke apne custom Hooks bana sakte hain. 
+### Aap ya to built-in Hooks ka use kar sakte hain ya inko mila ke apne custom Hooks bana sakte hain.
 
-# Types 
+# Types
 
 - ## State Hooks
-    
-    - ### State Hooks component ko kisi information ko read aur update karny lye me madad karte hain
-    
-    - ### jaise user ka input. e.g, form component input value ko store karne ke liye state ka use kar sakta hai, aur ek image gallery selected image ko track karne ke liye, etc.
 
+  - ### State Hooks component ko kisi information ko read aur update karny lye me madad karte hain
+
+  - ### jaise user ka input. e.g, form component input value ko store karne ke liye state ka use kar sakta hai, aur ek image gallery selected image ko track karne ke liye, etc.
 
 <br>
 
@@ -92,10 +91,9 @@ export default function US_ST(){
 
 ```
 
-# Preview 
+# Preview
 
-<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1_usestate.gif target="_blank"/>Click Here Preview
-
+<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1_usestate.gif target="_blank">Click Here Preview</a>
 
 Yeh code ek simple counter component banata hai jo:
 
@@ -172,7 +170,7 @@ export default function USE_ST() {
                 type: 'changeStep',
                 payload: parseInt(e.target.value)
               })
-              } 
+              }
               value={value.step}
       />
     </div>
@@ -181,10 +179,9 @@ export default function USE_ST() {
 
 ```
 
-# Preview 
+# Preview
 
-<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/2_use_reducer.gif target="_blank"/>Click Here Preview
-
+<a href=https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/2_use_reducer.gif target="_blank">Click Here Preview</a>
 
 Yeh code ek counter component hai jo **useReducer** ka use karta hai state aur actions manage karne ke liye:
 
