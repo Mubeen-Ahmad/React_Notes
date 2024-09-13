@@ -221,3 +221,146 @@ export default function USE_ST() {
 # Preview
 
 <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/usestate_todo.gif" target="_blank">Click Here Preview</a>
+
+<br>
+
+# Todo Same Example With `useReducer`
+
+```javascript
+import React, { useReducer } from "react";
+
+const initialState = {
+  todos: [
+    { id: 1, title: "Buy Milk", done: false },
+    { id: 2, title: "Buy Eggs", done: true },
+  ],
+  nextId: 3,
+  todoValue: "",
+};
+
+const reducer = (state, action) => {
+  if (action.type === "ADD") {
+    return {
+      ...state,
+      todos: [
+        ...state.todos,
+        { id: state.nextId, title: state.todoValue, done: false },
+      ],
+      nextId: state.nextId + 1,
+      todoValue: "",
+    };
+  } else if (action.type === "DELETE") {
+    return {
+      ...state,
+      todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+    };
+  } else if (action.type === "CHECKED") {
+    return {
+      ...state,
+      todos: state.todos.map((todo) =>
+        todo.id === action.payload.id ? { ...todo, done: !todo.done } : todo
+      ),
+    };
+  } else if (action.type === "EDIT") {
+    return {
+      ...state,
+      todos: state.todos.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, title: action.payload.new_value }
+          : todo
+      ),
+    };
+  } else if (action.type === "UPDATE_TODO_VALUE") {
+    return {
+      ...state,
+      todoValue: action.payload.value,
+    };
+  } else {
+    return state;
+  }
+};
+
+export default function USE_ST() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const divStyle = {
+    margin: 10,
+    padding: 10,
+    border: "1px solid black",
+    maxWidth: "30%",
+    maxHeight: "10%",
+    backgroundColor: "skyblue",
+  };
+
+  const btnStyle = {
+    width: "30%",
+    marginLeft: 25,
+    backgroundColor: "orange",
+    borderRadius: 50,
+  };
+
+  return (
+    <>
+      <div style={divStyle}>
+        <input
+          type="text"
+          placeholder="Todo Data"
+          name="todo"
+          id="todo"
+          onChange={(e) =>
+            dispatch({
+              type: "UPDATE_TODO_VALUE",
+              payload: { value: e.target.value },
+            })
+          }
+          value={state.todoValue}
+        />
+
+        <button style={btnStyle} onClick={() => dispatch({ type: "ADD" })}>
+          ADD
+        </button>
+      </div>
+
+      <div style={divStyle}>
+        <ul>
+          {state.todos.map((i) => (
+            <li key={i.id}>
+              <input
+                style={{ width: 20 }}
+                type="checkbox"
+                checked={i.done}
+                onChange={() =>
+                  dispatch({ type: "CHECKED", payload: { id: i.id } })
+                }
+              />
+              {i.title}
+              <button
+                style={{ marginLeft: 20, marginTop: 10 }}
+                onClick={() =>
+                  dispatch({
+                    type: "EDIT",
+                    payload: {
+                      id: i.id,
+                      new_value: prompt("Edit Item", i.title),
+                    },
+                  })
+                }
+              >
+                Edit
+              </button>
+              <button
+                style={{ marginLeft: 20, marginTop: 10 }}
+                onClick={() =>
+                  dispatch({ type: "DELETE", payload: { id: i.id } })
+                }
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+```
