@@ -364,3 +364,15 @@ export default function USE_ST() {
   );
 }
 ```
+
+## Code me `reducer` ka use karny sy kia faida huwa ?
+
+- ## **Single Function for All Actions**:
+  - ### Sab actions ko ek hi `reducer` function se handle kiya, `useState` me har action ke liye alag state setters ki zarurat hoti.
+- ## **Centralized State Management**:
+
+  - ### Sab state variables (`todos`, `nextId`, `todoValue`) ko ek hi object me manage kiya, `useState` me inhe alag-alag handle karna padta.
+
+- ## **Scalability**:
+
+  - ### Asaan tareeke se naye actions aur logic ko reducer me add kar sakte hain, jabki `useState` me yeh difficult hota.
