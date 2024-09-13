@@ -4,6 +4,6 @@
 - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/1%20State_hooks.md">1 State Hook | useState & useReducer -> Overview</a><br>
     - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/2%20intialize_vs_call.md">1.1 Initialize VS Call | useState Example</a><br>
     - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/3%20pass_new_state_vs_updater_function.md">1.2 Updater Function VS Passing Next State | useState Example</a><br>
-    - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/4%20useState%20More%20Examples.md">1.3 useState More Example</a><br>
+    - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/4%20useState%20More%20Examples.md">1.3 useState | useReducer Examples</a><br>
 
 </details>
