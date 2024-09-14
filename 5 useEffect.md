@@ -113,3 +113,135 @@ root.render(
       # Preview
 
     <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/2_useEffect.gif" target="_blank">Click Here Preview</a>
+
+<br>
+
+# Case 2
+
+- ## Execute only on Specfic State
+
+  ```javascript
+  useEffect(() => {
+    alert("Update Color");
+  }, [color]);
+  ```
+
+  ```javascript
+  import { useEffect, useState } from "react";
+
+  function App() {
+    const [color, setColor] = useState("");
+
+    useEffect(() => {
+      alert("I am calling on Every Render");
+    });
+
+    useEffect(() => {
+      alert("Update Color");
+    }, [color]);
+
+    return (
+      <div style={{ backgroundColor: color }}>
+        <h1>Welcome</h1>
+        <button onClick={() => setColor("green")}>Green</button>
+        <button onClick={() => setColor("orange")}>Orange</button>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+  - ### Yaha pe pehla `useEffect` har rendering aur page refresh hone par run ho ga.
+
+  - ### Aur doosra `useEffect` sirf `color` state change hone par aur page refresh hone par hi run ho ga.
+
+  - ### Aur jab bhi `color` change ho ga, to `color` re-render ho ga. Re-render hone se pehle pehla `useEffect` call ho ga jo har render par call hota hai, phir iske baad `color` wala `useEffect` call ho jayega.
+
+  # Preview
+
+  <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/3_useEffect.gif" target="_blank">Click Here Preview</a>
+
+    <br>
+
+# Case 3
+
+- ## Execute only on first Page render
+
+  - ### `useEffect(()=>{alert("Call on Every Render")})`
+
+  - ### Ye har trah ki rendering aur page load par call ho ga.
+
+  <hr>
+
+  - ### `useEffect(()=>{alert(" ")}, [color])`
+
+  - ### Ye `useEffect` sirf tab call ho ga jab `color` change ho ga. Jaise hi `color` change ya page reload ho ga, to pehla `useEffect` (jo har render par call hota hai) pehle chalega, phir ye `color` wala `useEffect` chalega.
+
+  <hr>
+
+  - ### `useEffect(()=>{alert("call on load page")}, [])`
+
+  - ### Jab aap `[]` pass karte hain, to ye `useEffect` sirf page reload hone par hi call ho ga. Jaise hi ye call hona shuru ho ga, ussi waqt Every render wala `useEffect` bhi pehle chalega, aur phir baad mein ye "call on load page" wala `useEffect` chalega.
+
+  ```javascript
+  import { useEffect, useState } from "react";
+
+  function App() {
+    const [color, setColor] = useState("");
+
+    useEffect(() => {
+      alert("I am calling on Every Render");
+    });
+
+    useEffect(() => {
+      alert("Welcome to the page");
+    }, []);
+
+    useEffect(() => {
+      alert("call on change color");
+    }, [color]);
+
+    return (
+      <div style={{ backgroundColor: color }}>
+        <h1>Welcome</h1>
+        <button onClick={() => setColor("green")}>Green</button>
+        <button onClick={() => setColor("orange")}>Orange</button>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+  - ### on page load
+
+    - ### `useEffect(() => {alert("I am calling on Every Render") });`
+
+    - ### `1st call` every render wala ho ga
+
+    - ### `2nd call` welcome to the page
+
+    - ### `3rd call` call on change color
+
+  - ### on load first page
+
+    - ### `useEffect(() => { alert("Welcome to the page");}, []);`
+
+    - ### `1st call` every render wala ho ga
+
+    - ### `2nd call` welcome to the page
+
+  - ### on load first page
+
+    - ### `useEffect(() => { alert("call on change color"); }, [color]);`
+
+    - ### `1st call` every render wala ho ga
+
+    - ### `2nd call` call on change color
+
+    # Preview
+
+    <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/4_useeffect.gif" target="_blank">Click Here Preview</a>
+
+    <br>
