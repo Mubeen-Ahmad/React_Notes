@@ -75,8 +75,6 @@ root.render(
 
   - ### `State change hony par`
 
-  - ### `Ya kuch bhi render hone par`
-
     # Preview
 
     <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1_useeffect.gif" target="_blank">Click Here Preview</a>
