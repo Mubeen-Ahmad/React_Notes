@@ -6,4 +6,6 @@
     - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/3%20pass_new_state_vs_updater_function.md">1.2 Updater Function VS Passing Next State | useState Example</a><br>
     - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/4%20useState%20More%20Examples.md">1.3 useState | useReducer Examples</a><br>
 
+- <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/5%20useEffect.md">2 useEffect</a><br>
+
 </details>
