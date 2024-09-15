@@ -16,9 +16,7 @@
 
 - ### Hum props ka use karke ye value `App.js` se `Page1`, aur phir `Page1` se `Page2` tak le ja sakte hain.
 
-
 ```javascript
-
 import { useState } from "react";
 
 function App() {
@@ -51,7 +49,6 @@ function Page2({ count }) {
 }
 
 export default App;
-
 ```
 
-![image](https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1usecontext.png "a title")
+<img title="output" alt="Alt text" src="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1usecontext.png" width=200>
