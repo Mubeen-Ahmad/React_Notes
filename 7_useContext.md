@@ -51,4 +51,6 @@ function Page2({ count }) {
 export default App;
 ```
 
-<img title="output" alt="Alt text" src="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1usecontext.png" width=200>
+###  Preview Page
+
+<img title="output" alt="Alt text" src="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/1usecontext.png" width=150 height=150>
