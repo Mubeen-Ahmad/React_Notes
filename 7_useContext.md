@@ -160,7 +160,7 @@ export default App;
 
 <br>
 
-# Example 2 (componnents)
+# Example 2 (Components)
 
 - ### App.js
 
