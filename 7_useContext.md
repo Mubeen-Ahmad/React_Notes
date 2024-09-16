@@ -347,7 +347,7 @@ export default function Home() {
     <div style={{ border: "1px solid red", margin: 3, maxWidth: 200 }}>
       <h4>This is Home Page</h4>
       <p>Value of x is {obj.value.x}</p>
-      <button onClick={() => obj.setValue({x:obj.value.x + 1,y:obj.value.y})}>Incement X</button>
+      <button onClick={() => obj.setValue({x:obj.value.x + 1,y:obj.value.y})}>Increment X</button>
 
     </div>
   );
@@ -368,7 +368,7 @@ export default function Page1() {
     <div style={{ border: "1px solid red", margin: 3, maxWidth: 200 }}>
       <h4>This is Page1</h4>
       <p>Value of y is {obj.value.y}</p>
-      <button onClick={() => obj.setValue({x:obj.value.x,y:obj.value.y + 1})}>Incement Y</button>
+      <button onClick={() => obj.setValue({x:obj.value.x,y:obj.value.y + 1})}>Increment Y</button>
     </div>
   );
 }
