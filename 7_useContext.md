@@ -300,3 +300,105 @@ export default function Result() {
 <img title="output" alt="Alt text" src="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/6useEffect.png" width=150 height=250>
 
 <br>
+
+# Update Value
+
+- ### jis traha value pass ki hn isi traha setValue bi pass kia ja sakhta hn
+
+```javascript
+import Home from "./components/Home";
+import Page1 from "./components/Page1";
+import Result from "./components/Result";
+
+import { createContext, useState } from "react";
+
+export const context = createContext();
+
+function App() {
+  const [value, setValue] = useState({ x: 2, y: 6 });
+
+  return (
+    <context.Provider value={{ value, setValue }}>
+      <Home />
+      <Page1 />
+      <Result />
+    </context.Provider>
+  );
+}
+
+export default App;
+```
+
+# Explaintion
+
+- ## yaha `value={{value,setValue}}` me value,setValue 1 object me pass kia gia hn
+
+```javascript
+
+// Home.js
+
+import { useContext } from "react";
+import { context } from "../App";
+
+export default function Home() {
+  const obj = useContext(context);
+
+  return (
+    <div style={{ border: "1px solid red", margin: 3, maxWidth: 200 }}>
+      <h4>This is Home Page</h4>
+      <p>Value of x is {obj.value.x}</p>
+      <button onClick={() => obj.setValue({x:obj.value.x + 1,y:obj.value.y})}>Incement X</button>
+
+    </div>
+  );
+}
+
+
+
+
+// Page1.js
+
+import { useContext } from "react";
+import { context } from "../App";
+
+export default function Page1() {
+  const obj = useContext(context);
+
+  return (
+    <div style={{ border: "1px solid red", margin: 3, maxWidth: 200 }}>
+      <h4>This is Page1</h4>
+      <p>Value of y is {obj.value.y}</p>
+      <button onClick={() => obj.setValue({x:obj.value.x,y:obj.value.y + 1})}>Incement Y</button>
+    </div>
+  );
+}
+
+// Result.js
+
+import { useContext } from "react";
+import { context } from "../App";
+
+export default function Result() {
+  const obj = useContext(context);
+
+  return (
+    <div>
+      <h4>
+        Sum of ({obj.value.x},{obj.value.y}) is {obj.value.x + obj.value.y}
+      </h4>
+    </div>
+  );
+}
+```
+
+# Explaination
+
+- ### ab yaha pr obj.value us x,y ko use kia hn aur obj.setValue sy x,y ko button ky call hony par increment kia hn
+
+<br>
+
+# Preview
+
+<a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/images/7useEffect.gif" target="_blank">Click Here Preview</a>
+
+<br>
