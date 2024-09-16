@@ -7,6 +7,9 @@
     - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/4%20useState%20More%20Examples.md">1.3 useState | useReducer Examples</a><br>
 
 - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/5%20useEffect.md">2 useEffect</a><br>
+
   - <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/6_useEffect_cleanup_and_examples.md">2.1 useEffect Cleanup</a><br>
+
+- <a href="https://github.com/Mubeen-Ahmad/React_Notes/blob/main/7_useContext.md">3 useContext | createContext function</a><br>
 
 </details>
